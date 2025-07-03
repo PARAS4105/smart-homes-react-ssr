@@ -1,6 +1,6 @@
 export const PropertyList = async () => {
 
-  console.log("✅ In PropertyList function");
+
 
   try {
     const response = await fetch("https://www.reecosys.com/api/Services/properties/list", {
@@ -11,8 +11,8 @@ export const PropertyList = async () => {
       },
       body: JSON.stringify({
         all_detail: "1",
-        master_user_id: "373",
-        logged_in_master_user_id: "373"
+        master_user_id: "339",
+        logged_in_master_user_id: "339"
       })
     });
 

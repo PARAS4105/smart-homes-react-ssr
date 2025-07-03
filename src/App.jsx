@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home";
-// import Header from "./components/Header";
+import Home from "./pages/Home";
+import Header from "./components/Header";
 // import Footer from "./components/Footer";
 // import Detail from "./pages/Detail"
 // import CompletedProjects from "./pages/CompletedProjects"
@@ -12,7 +12,7 @@ import { Routes, Route } from "react-router-dom";
 // import AboutUs from "./pages/AboutUs"
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-// import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 // import HeaderInquiryForm from "./components/HeaderInquiryForm";
 // import "../public/styles/globals.css"
 if (typeof window !== "undefined") {
@@ -42,15 +42,15 @@ const App = ({ data }) => {
 
   return (
     <>
-      <h1>Hello From App.jsx</h1>
+      {/* <h1>Hello From App.jsx</h1> */}
 
-      {/* {!isAmenityOpen && !isProximityOpen && !inquiryPopup && (<Header inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup} adminDetail={data.AdminDetailData} propertylist={data.PropertyListData} completedPropertylist={data.CompletedPropertyListData} pageList={data.PageListData} socialList={data.SocialMediaListData} />)}
+      {!isAmenityOpen && !isProximityOpen && !inquiryPopup && (<Header inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup} adminDetail={data.AdminDetailData} propertylist={data.PropertyListData}   socialList={data.SocialMediaListData} />)}
       <ScrollToTop />
       <main>
         <Routes>
           <Route path="/" element={<Home inquiryPopupObj={inquiryPopupObj} setInquiryPopupObj={setInquiryPopupObj} inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup} homeDetails={data.homeDetailData} propertylist={data.PropertyListData} completedPropertylist={data.CompletedPropertyListData} />} />
 
-          <Route path="/completed-projects" element={<CompletedProjects completedPropertylist={data.CompletedPropertyListData} ></CompletedProjects>} />
+          {/* <Route path="/completed-projects" element={<CompletedProjects completedPropertylist={data.CompletedPropertyListData} ></CompletedProjects>} />
 
           <Route path="/about-us" element={<AboutUs aboutDetails={data.aboutDetailData} pageList={data.PageListData} />} />
 
@@ -63,14 +63,14 @@ const App = ({ data }) => {
           <Route path="/:slug/thankyou" element={<Thankyou />} />
 
           <Route path="/:slug" element={<Detail isAmenityOpen={isAmenityOpen} setAmenityToggle={setAmenityToggle} isProximityOpen={isProximityOpen}
-            setProximityToggle={setProximityToggle} inquiryPopupObj={inquiryPopupObj} setInquiryPopupObj={setInquiryPopupObj} inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup} projectData={data.projectData} propertylist={data.PropertyListData} completedPropertylist={data.CompletedPropertyListData} />} />
+            setProximityToggle={setProximityToggle} inquiryPopupObj={inquiryPopupObj} setInquiryPopupObj={setInquiryPopupObj} inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup} projectData={data.projectData} propertylist={data.PropertyListData} completedPropertylist={data.CompletedPropertyListData} />} /> */}
 
         </Routes>
-        { <HeaderInquiryForm inquiryPopupObj={inquiryPopupObj} setInquiryPopupObj={setInquiryPopupObj} inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup}
-          propertylist={data.PropertyListData} />}
+        {/* { <HeaderInquiryForm inquiryPopupObj={inquiryPopupObj} setInquiryPopupObj={setInquiryPopupObj} inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup}
+          propertylist={data.PropertyListData} />} */}
       </main>
 
-      <Footer adminDetail={data.AdminDetailData} propertylist={data.PropertyListData} completedPropertylist={data.CompletedPropertyListData} pageList={data.PageListData} socialList={data.SocialMediaListData} /> */}
+      {/* <Footer adminDetail={data.AdminDetailData} propertylist={data.PropertyListData} completedPropertylist={data.CompletedPropertyListData} pageList={data.PageListData} socialList={data.SocialMediaListData} /> */}
 
       <ToastContainer
         position="bottom-right"

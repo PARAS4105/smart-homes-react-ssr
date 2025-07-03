@@ -10,7 +10,7 @@ export const AdminDetail = async () => {
         "Authorization": "User CXPNVIEIQMVJESPFKSKSMHNYNMVNXGYYHELVAZGNDVYHZUMKQM5891853093"
       },
       body: JSON.stringify({
-        user_name : "swatiprocon"
+        user_name : "smarthomesinfrastructure"
       })
     });
 

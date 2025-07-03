@@ -13,8 +13,8 @@ export const PropertyDetail = async (slug) => {
       },
       body: JSON.stringify({
         all_detail: "1",
-        master_user_id: "373",
-        logged_in_master_user_id: "373",
+        master_user_id: "339",
+        logged_in_master_user_id: "339",
         slug : slug
       })
     });

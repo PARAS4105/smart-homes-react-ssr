@@ -10,8 +10,8 @@ export const HomeDetail = async () => {
         "Authorization": "User CXPNVIEIQMVJESPFKSKSMHNYNMVNXGYYHELVAZGNDVYHZUMKQM5891853093"
       },
       body: JSON.stringify({
-        master_user_id: "373",
-        logged_in_master_user_id: "373"
+        master_user_id: "339",
+        logged_in_master_user_id: "339"
       })
     });
 

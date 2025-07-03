@@ -85,7 +85,7 @@ app.get("/*", async (req, res) => {
     };
 
     // 2️⃣ Fetch shared data in parallel
-    const [adminData, socialData, propertyList, pageList, completedList, homeDetail, ContactDetailData , jobListData] = await Promise.all([
+    const [adminData, socialData, propertyList, pageList, completedList, homeDetail, ContactDetailData, jobListData] = await Promise.all([
       AdminDetail(),
       SocialMediaList(),
       PropertyList(),
@@ -106,7 +106,7 @@ app.get("/*", async (req, res) => {
     data.ContactDetailData = ContactDetailData;
 
     // 5️⃣ Route analysis
-    const staticPaths = ['about-us', 'completed-projects', 'contact-us', 'channelpartner' , 'career'];
+    const staticPaths = ['about-us', 'completed-projects', 'contact-us', 'channelpartner', 'career'];
     let slug = null;
     let isStaticPage = false;
 
@@ -123,10 +123,10 @@ app.get("/*", async (req, res) => {
         if (firstPart === "channelpartner") {
           data.ChannelDetailData = data.PageListData.find(p => p.slug === "channelpartner");
         }
-        if (firstPart === "contact-us") { 
+        if (firstPart === "contact-us") {
           data.contactSeoData = data.PageListData.find(p => p.slug === "contact-us");
         }
-        if (firstPart === "career") { 
+        if (firstPart === "career") {
           data.CareerDetailData = data.PageListData.find(p => p.slug === "career");
         }
         if (firstPart === "completed-projects") { }
@@ -169,7 +169,7 @@ app.get("/*", async (req, res) => {
       </HelmetProvider>
     );
     const { helmet } = helmetContext;
-    
+
     // 9️⃣ Final HTML
     const html = `
       <!DOCTYPE html>
@@ -180,11 +180,75 @@ app.get("/*", async (req, res) => {
           ${helmet.title.toString()}
           ${helmet.meta.toString()}
           ${helmet.link.toString()}
+          <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Black.woff2" type="font/woff2" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Black.woff" type="font/woff" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2" type="font/woff2" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff" type="font/woff" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Light.woff2" type="font/woff2" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Light.woff" type="font/woff" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff2" type="font/woff2" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff" type="font/woff" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2" type="font/woff2" crossorigin="anonymous" />
+	        <link rel="preload" as="font" href="/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff" type="font/woff" crossorigin="anonymous" />
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link rel="preload" href="/styles/globals.css" as="style">
           <link rel="stylesheet" href="/styles/globals.css">
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0" />
+          <style>
+		body {
+			overflow-x: hidden !important;
+		}
+
+		.page-view {
+			min-height: 100vh;
+			/* padding-top: 90px; */
+		}
+
+
+		.fullpageloader {
+			display: grid;
+			place-items: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100svw;
+			height: 100svh;
+			z-index: 99999999999999;
+			background-color: #ffffff;
+			transition: opacity ease 0.4s;
+			-moz-transition: opacity ease 0.4s;
+			-webkit-transition: opacity ease 0.4s;
+			-ms-transition: opacity ease 0.4s;
+			-o-transition: opacity ease 0.4s;
+		}
+
+		.fullpageloader.hiddenloader {
+			opacity: 0;
+			visibility: hidden;
+			/* display: none; */
+			pointer-events: none !important;
+		}
+
+		.fullpageloader div {
+			width: 50%;
+		}
+
+		.fullpageloader div svg {
+			width: 100%;
+		}
+
+
+
+
+
+
+		@media only screen and (max-width: 767px) {
+			.fullpageloader div {
+				width: 80%;
+			}
+		}
+	</style>
         </head>
         <body>
           <div id="root">${appHtml}</div>

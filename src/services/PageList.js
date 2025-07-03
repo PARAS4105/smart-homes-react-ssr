@@ -1,6 +1,6 @@
 export const PageList = async () => {
 
-  console.log("✅ In PageList function");
+
 
   try {
     const response = await fetch("https://www.reecosys.com/api/Admin/pages/list", {
@@ -11,8 +11,8 @@ export const PageList = async () => {
       },
       body: JSON.stringify({
         
-        master_user_id: "373",
-        logged_in_master_user_id: "373"
+        master_user_id: "339",
+        logged_in_master_user_id: "339"
       })
     });
 
